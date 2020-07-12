@@ -1,0 +1,85 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div id="navbar" class="navbar-collapse collapse">
+            
+        </div>
+    </div>
+</nav>
+
+<header id="page-top">
+    <div class="container">
+        <div class="heading col-md-8">
+            <h1>
+                Welcome to EduArena
+            </h1>
+            <span>Special platform for Online <strong>Education</strong></span>
+            <p class="small">
+                Make it simple and lead to success
+            </p>
+        </div>
+        <div class="heading col-md-4" animate-panel>
+	        <div class="login-container hpanel plan-box hgreen active">
+		        <div class="row">
+		            <div class="col-md-12">
+		                <div class="hpanel">
+				        	<div class="hbuilt text-center">
+			                    <h4 class="font-bold help-block">Educational Arena</h4>
+			                </div>
+		                    <div class="panel-body">
+	                            <form id="loginForm" name="loginForm" ng-controller="loginCtrl" >
+	                                <div class="form-group">
+	                                    <label class="control-label help-block" for="username">Username</label>
+	                                    <input ng-focus="hideError()" type="text" placeholder="eg. T0001" title="Please enter you username" required="" value="" name="username" ng-model="username" autocomplete="off" class="form-control">
+	                                </div>
+	                                <div class="form-group">
+	                                    <label class="control-label help-block" for="password">Password</label>
+	                                    <input ng-focus="hideError()" type="password" title="Please enter your password" placeholder="******" required="" value="" name="password" ng-model="password" autocomplete="off" class="form-control">
+	                                </div>
+	                                <button class="btn btn-success btn-block" type="submit" ng-click="validateMe(loginForm)">Login</button>
+	                                <span>&nbsp;&nbsp;</span>
+	                                <span class="text-danger" style="color:red">{{ error }}</span>
+	                            </form>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+	    	</div>
+        </div>
+    </div>
+</header>
+
+<section>
+<div class="container">
+<div class="row">
+    <div class="col-md-4">
+        <h4>Teacher Module</h4>
+        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
+    </div>
+    <div class="col-md-4">
+        <h4>Student Module</h4>
+        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of.</p>
+    </div>
+    <div class="col-md-4">
+        <h4>Unique Dashboard</h4>
+        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+    </div>
+</div>
+</div>
+</section>
+ 
+<!-- Local script for menu handle -->
+<!-- It can be also directive -->
+<script>
+    $(document).ready(function () {
+
+        // Page scrolling feature
+        $('a.page-scroll').bind('click', function(event) {
+            var link = $(this);
+            $('html, body').stop().animate({
+                scrollTop: $(link.attr('href')).offset().top - 50
+            }, 500);
+            event.preventDefault();
+        });
+
+    });
+</script>
