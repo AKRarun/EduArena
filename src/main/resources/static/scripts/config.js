@@ -4,10 +4,12 @@
  *
  */
 
-function configState($stateProvider, $urlRouterProvider, $compileProvider) {
+function configState($stateProvider, $urlRouterProvider, $compileProvider, $sceProvider) {
 
     // Optimize load start with remove binding information inside the DOM element
     $compileProvider.debugInfoEnabled(true);
+    
+    $sceProvider.enabled(false);
 
     // Set default state
     $urlRouterProvider.otherwise("/home");
@@ -23,13 +25,13 @@ function configState($stateProvider, $urlRouterProvider, $compileProvider) {
 	    		specialClass: 'landing-page'
 	    	},
 	    	controller: 'loginCtrl',
-	    	authenticate: true
+	    	authenticate: false
 	    })
     	// Logout - pointed to home state
 	    .state('logout', {
 //	        url: "/home",
 	        templateUrl: "views/home.html",
-	        controller: 'loginCtrl',
+//	        controller: 'loginCtrl',
 	        data: {
 	            pageTitle: 'Home',
 	            specialClass: 'landing-page'
@@ -44,7 +46,8 @@ function configState($stateProvider, $urlRouterProvider, $compileProvider) {
 	    	data: {
 	    		pageTitle: 'Dashboard',
 	    		pageDesc: 'The basic functionality of Dashboard'
-	    	}
+	    	},
+	    	authenticate: true
 	    })
 	    .state('campus', {
 	    	url: "/campus",
@@ -52,7 +55,8 @@ function configState($stateProvider, $urlRouterProvider, $compileProvider) {
 	    	data: {
 	    		pageTitle: 'Campus',
 	    		pageDesc: 'The basic functionality of Campus'
-	    	}
+	        },
+	        authenticate: true
 	    })
 	    .state('admission', {
 	    	url: "/admission",
@@ -60,7 +64,8 @@ function configState($stateProvider, $urlRouterProvider, $compileProvider) {
 	    	data: {
 	    		pageTitle: 'Admission',
 	    		pageDesc: 'The basic functionality of Admission'
-	    	}
+	        },
+	        authenticate: true
 	    })
 	    .state('academic', {
 	    	abstract: true,
@@ -69,23 +74,35 @@ function configState($stateProvider, $urlRouterProvider, $compileProvider) {
 	    	data: {
 	    		pageTitle: 'Academic',
 	    		pageDesc: 'The basic functionality of Academic'
-	    	}
+	        },
+	        authenticate: true
 	    })
-	    .state('academic.class', {
+	    .state('class', {
 	    	url: "/class",
 	    	templateUrl: "views/academic/class.html",
 	    	data: {
 	    		pageTitle: 'Class',
 	    		pageDesc: 'The basic functionality of Class'
-	    	}
+	        },
+	        authenticate: true
 	    })
-	    .state('academic.subject', {
+	    .state('subject', {
 	    	url: "/subject",
 	    	templateUrl: "views/academic/subject.html",
 	    	data: {
 	    		pageTitle: 'Subject',
 	    		pageDesc: 'The basic functionality of Subject'
-	    	}
+	    	},
+	    	authenticate: true
+	    }) 
+	    .state('grade', {
+	    	url: "/grade",
+	    	templateUrl: "views/academic/grade.html",
+	    	data: {
+	    		pageTitle: 'Grade',
+	    		pageDesc: 'The basic functionality of Grade'
+	        },
+	        authenticate: true
 	    }) 
 	    /*
 	    .state('class', {
@@ -111,7 +128,8 @@ function configState($stateProvider, $urlRouterProvider, $compileProvider) {
 	    	data: {
 	    		pageTitle: 'Staff',
 	    		pageDesc: 'The basic functionality of Staff'
-	    	}
+	        },
+	        authenticate: true
 	    })
 	    .state('student', {
 	    	url: "/student",
@@ -119,7 +137,18 @@ function configState($stateProvider, $urlRouterProvider, $compileProvider) {
 	    	data: {
 	    		pageTitle: 'Student',
 	    		pageDesc: 'The basic functionality of Student'
-	    	}
+	        },
+	        authenticate: true
+	    })
+	    .state('cms', {
+	    	url: "/cms",
+	    	templateUrl: "views/cms.html",
+	    	data: {
+	    		pageTitle: 'CMS',
+	    		pageDesc: 'The basic functionality of CMS Page'
+	        },
+	    	controller: 'cmsCtrl',
+    		authenticate: true
 	    })
         .state('page', {
             url: "/page",
@@ -127,7 +156,8 @@ function configState($stateProvider, $urlRouterProvider, $compileProvider) {
             data: {
                 pageTitle: 'page',
                 pageDesc: 'The basic functionality of Test Page'
-            }
+	        },
+	        authenticate: true
         })
 }
 

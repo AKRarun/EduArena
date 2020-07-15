@@ -10,21 +10,28 @@ angular
 
 function loginCtrl($rootScope, $scope, $http, $state, $stateParams, sweetAlert, notify, loginService, $cookieStore) {
 
-	$rootScope.userRole = $cookieStore.get('userRole');
+	try{
+		$rootScope.userRole = $cookieStore.get('userRole');
+	}catch(e){console.log("Get UserRole Exception::"+e);}
+
     $scope.validateMe = function(loginForm) {
 
     	if(loginForm.username.$valid && loginForm.password.$valid){
 
     	loginService.login($scope, $http).then(
 			function success(response){
-				console.log("Response:"+response.data);
+				console.log("Response:"+response.data.access);
   	    		if(response.data.access == "valid"){
   	    			$rootScope.userRole = response.data.type;
   	    			$cookieStore.put('user',$scope.username);
   	    			$cookieStore.put('userRole',$rootScope.userRole);
 //  	    			$cookieStore.put('authenticated',true);
 //  	    			$http.defaults.headers.common['X-Auth-Token'] = $scope.username.token;
-	    			$state.transitionTo('dashboard');
+//  	    			$state.transitionTo('dashboard');
+  	    			
+  	    			console.log("Response success - redirect me");
+  	    			
+	    			$state.go('dashboard');
 	    		}else{
 	    			$scope.error = "Incorrect username/password !";
 				}

@@ -24,13 +24,23 @@
         <li ui-sref-active="active">
             <a ui-sref="admission"> <span class="nav-label">Admission</span></a>
         </li>
-        <li ng-class="{active: $state.includes('academic')}">
-            <a href="#"><span class="nav-label">Academic</span><span class="fa arrow"></span> </a>
-            <ul class="nav nav-second-level" ng-class="{in: $state.includes('academic')}">
-                <li ui-sref-active="active"><a ui-sref="academic.class">Class</a></li>
-                <li ui-sref-active="active"><a ui-sref="academic.subject">Subject</a></li>
-            </ul>
+        <li ui-sref-active="active">
+            <a ui-sref="class"> <span class="nav-label">Class</span></a>
         </li>
+        <li ui-sref-active="active">
+            <a ui-sref="subject"> <span class="nav-label">Subject</span></a>
+        </li>
+        <li ui-sref-active="active">
+            <a ui-sref="grade"> <span class="nav-label">Grade</span></a>
+        </li>
+<!--         <li ng-class="{active: $state.includes('academic')}"> -->
+<!--             <a href="#"><span class="nav-label">Academic</span><span class="fa arrow"></span> </a> -->
+<!--             <ul class="nav nav-second-level" ng-class="{in: $state.includes('academic')}"> -->
+<!--                 <li ui-sref-active="active"><a ui-sref="academic.class">Class</a></li> -->
+<!--                 <li ui-sref-active="active"><a ui-sref="academic.subject">Subject</a></li> -->
+<!--                 <li ui-sref-active="active"><a ui-sref="academic.grade">Grade</a></li> -->
+<!--             </ul> -->
+<!--         </li> -->
 
 
 <!-- 		<li ui-sref-active="active"> -->
@@ -50,6 +60,9 @@
         </li>
         <li ui-sref-active="active">
             <a ui-sref="student"> <span class="nav-label">Student</span></a>
+        </li>
+        <li ui-sref-active="active">
+            <a ui-sref="cms"> <span class="nav-label">CMS</span></a>
         </li>
     </ul>
 </div>

@@ -29,7 +29,9 @@
     <link rel="stylesheet" href="components/ui-select/dist/select.min.css" />
     <link rel="stylesheet" href="components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" />
     <link rel="stylesheet" href="components/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" />
-    <link rel="stylesheet" href="components/blueimp-gallery/css/blueimp-gallery.min.css" />
+    <link rel="stylesheet" href="components/blueimp-gallery/css/blueimp-gallery.css" />
+    <link rel="stylesheet" href="components/blueimp-gallery/css/blueimp-gallery-indicator.css" />
+    <link rel="stylesheet" href="components/blueimp-gallery/css/blueimp-gallery-video.css" />
     <link rel="stylesheet" href="components/footable/css/footable.core.css" />
     <link rel="stylesheet" href="components/chartist/custom/chartist.css" />
     <link rel="stylesheet" href="components/CodeMirror/lib/codemirror.css" />
@@ -119,7 +121,14 @@
 <script src="components/angular-xeditable/dist/js/xeditable.min.js"></script>
 <script src="components/ui-select/dist/select.min.js"></script>
 <script src="components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
-<script src="components/blueimp-gallery/js/jquery.blueimp-gallery.min.js"></script>
+<script src="components/blueimp-gallery/js/blueimp-helper.js"></script>
+<script src="components/blueimp-gallery/js/blueimp-gallery.js"></script>
+<script src="components/blueimp-gallery/js/blueimp-gallery-fullscreen.js"></script>
+<script src="components/blueimp-gallery/js/blueimp-gallery-indicator.js"></script>
+<script src="components/blueimp-gallery/js/blueimp-gallery-video.js"></script>
+<script src="components/blueimp-gallery/js/blueimp-gallery-vimeo.js"></script>
+<script src="components/blueimp-gallery/js/blueimp-gallery-youtube.js"></script>
+<script src="components/blueimp-gallery/js/jquery.blueimp-gallery.js"></script>
 <script src="components/angular-ui-sortable/sortable.min.js"></script>
 <script src="components/footable/dist/footable.all.min.js"></script>
 <script src="components/angular-footable/dist/angular-footable.min.js"></script>
@@ -177,10 +186,17 @@
 <script src="scripts/controllers/chartist.js"></script>
 <script src="scripts/controllers/codeEditor.js"></script>
 <script src="scripts/controllers/loading.js"></script>
+<script src="scripts/controllers/ng-blueimp-gallery.js"></script>
 <script src="scripts/directives/touchSpin.js"></script>
 <!-- endbuild -->
 
 <!-- startCode -->
+<script
+  src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"
+  integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+  crossorigin="anonymous"
+></script> 
+<script src="scripts/eduarena/cmsCtrl.js"></script>
 <script src="scripts/eduarena/loginCtrl.js"></script>
 <script src="scripts/eduarena/loginService.js"></script>
 <!-- endCode -->

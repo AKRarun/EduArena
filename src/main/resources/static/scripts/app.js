@@ -30,7 +30,8 @@
         'datatables.buttons',       // Datatables Buttons
         'angular-ladda',            // Ladda - loading buttons
         'ui.codemirror',            // Ui Codemirror
-        'ngCookies'                 // for cookies
+        'ngCookies',                 // for cookies
+        'ui.blueimp.gallery'         // for blueimp
     ])
 })();
 
