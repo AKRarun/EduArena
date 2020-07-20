@@ -8,7 +8,7 @@ angular
     .module('eduarena')
     .controller('subscriptionCtrl', subscriptionCtrl)  
 
-function subscriptionCtrl($rootScope, $scope, $http, $state, $stateParams, sweetAlert, notify, $cookieStore) {
+function subscriptionCtrl($rootScope, $scope, $http, $state, $stateParams, sweetAlert, notify, $cookieStore, $timeout) {
 	
 	$scope.contentsGeneral = [
 		{src:'https://www.youtube.com/embed/8LM-degerdo', title:'7 Types of Plastics', tag:'General', type:'youtube'},
@@ -19,6 +19,23 @@ function subscriptionCtrl($rootScope, $scope, $http, $state, $stateParams, sweet
 		{src:'https://www.youtube.com/embed/6GHTo4YAugo', title:'BioCellection Technology for Recycling Plastic', tag:'General', type:'youtube'},
 		{src:'https://www.youtube.com/embed/uWf-ftw0Bbo', title:'Circular Economy', tag:'General', type:'youtube'}
 	];
+	
+
+	 $scope.subscribeForm = function(pack) {
+		 $timeout(function () {
+	            // Simulate some service
+//			 alert("pack:"+pack);
+	     
+		        	// Show notification
+		        	sweetAlert.swal({
+		        		title: "Thank you for your interest!",
+		        		text: "We will verify and send you the confirmation mail!",
+		        		type: "success"
+		        	});
+		 }, 800)
+
+	 }
+	 
 	
 };
 
