@@ -13,7 +13,6 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="components/angular-notify/dist/angular-notify.min.css" />
-    <link rel="stylesheet" href="components/angular-tour/angular-tour.css" />
     <link rel="stylesheet" href="components/fontawesome/css/font-awesome.css" />
     <link rel="stylesheet" href="components/metisMenu/dist/metisMenu.css" />
     <link rel="stylesheet" href="components/animate.css/animate.css" />
@@ -29,9 +28,7 @@
     <link rel="stylesheet" href="components/ui-select/dist/select.min.css" />
     <link rel="stylesheet" href="components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" />
     <link rel="stylesheet" href="components/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" />
-    <link rel="stylesheet" href="components/blueimp-gallery/css/blueimp-gallery.css" />
-    <link rel="stylesheet" href="components/blueimp-gallery/css/blueimp-gallery-indicator.css" />
-    <link rel="stylesheet" href="components/blueimp-gallery/css/blueimp-gallery-video.css" />
+    <link rel="stylesheet" href="components/blueimp-gallery/css/blueimp-gallery.min.css" />
     <link rel="stylesheet" href="components/footable/css/footable.core.css" />
     <link rel="stylesheet" href="components/chartist/custom/chartist.css" />
     <link rel="stylesheet" href="components/CodeMirror/lib/codemirror.css" />
@@ -52,31 +49,29 @@
 
 <!-- Body -->
 <!-- appCtrl controller with serveral data used in theme on diferent view -->
-<body ng-controller="appCtrl" class="{{$state.current.data.specialClass}} fixed-navbar">
+<!-- landing-scrollspy is directive for scrollspy used in landing page -->
+<body ng-controller="appCtrl" class="{{$state.current.data.specialClass}}" landing-scrollspy tour backdrop="true">
 
 <!-- Simple splash screen-->
-<!-- <div class="splash"> <div class="color-line"></div><div class="splash-title"><h1>EduArena </h1><p>Special platform for Online Education. </p><div class="spinner"> <div class="rect1"></div> <div class="rect2"></div> <div class="rect3"></div> <div class="rect4"></div> <div class="rect5"></div> </div> </div> </div> -->
-<div class="splash"> <div class="color-line"></div><div class="splash-title"><h1>EduArena </h1><p>Special platform for Online Education. </p><img src="images/loading-bars.svg" width="64" height="64" /> </div> </div>
+<!-- <div class="splash"> <div class="color-line"></div><div class="splash-title"><h1>Homer - Responsive Admin Theme</h1><p>Special Admin Theme for small and medium webapp with very clean and aesthetic style and feel. </p><div class="spinner"> <div class="rect1"></div> <div class="rect2"></div> <div class="rect3"></div> <div class="rect4"></div> <div class="rect5"></div> </div> </div> </div> -->
+<!-- <div class="splash"> <div class="color-line"></div><div class="splash-title"><h1>EduArena </h1><p>Special platform for Online Education. </p><img src="images/loading-bars.svg" width="64" height="64" /> </div> </div> -->
+<div class="splash"> <div class="color-line"></div><div class="splash-title"><h1>EduArena </h1><p>Special platform for Online Education</p><div class="spinner"> <div class="rect1"></div> <div class="rect2"></div> <div class="rect3"></div> <div class="rect4"></div> <div class="rect5"></div> </div> </div> </div> 
 <!--[if lt IE 7]>
 <p class="alert alert-danger">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 
     <!-- Page view wrapper -->
-    <div class="uiview" ui-view></div>
-
-</body>
+    <div ui-view autoscroll="true"></div>
 
 <!-- build:js(.) scripts/vendor.js -->
 <script src="components/jquery/dist/jquery.min.js"></script>
 <script src="components/jquery-ui/jquery-ui.min.js"></script>
 <script src="components/slimScroll/jquery.slimscroll.min.js"></script>
 <script src="components/angular/angular.min.js"></script>
-<script src="components/angular-tour/angular-tour.js"></script>
-<script src="components/angular-tour/angular-tour-tpls.min.js"></script>
-<script src="components/angular-cookies/angular-cookies.js"></script>
 <script src="components/angular-sanitize/angular-sanitize.min.js"></script>
 <script src="components/angular-animate/angular-animate.min.js"></script>
 <script src="components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="components/angular-cookies/angular-cookies.js"></script>
 <script src="components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 <script src="components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="components/jquery-flot/jquery.flot.js"></script>
@@ -121,14 +116,7 @@
 <script src="components/angular-xeditable/dist/js/xeditable.min.js"></script>
 <script src="components/ui-select/dist/select.min.js"></script>
 <script src="components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
-<script src="components/blueimp-gallery/js/blueimp-helper.js"></script>
-<script src="components/blueimp-gallery/js/blueimp-gallery.js"></script>
-<script src="components/blueimp-gallery/js/blueimp-gallery-fullscreen.js"></script>
-<script src="components/blueimp-gallery/js/blueimp-gallery-indicator.js"></script>
-<script src="components/blueimp-gallery/js/blueimp-gallery-video.js"></script>
-<script src="components/blueimp-gallery/js/blueimp-gallery-vimeo.js"></script>
-<script src="components/blueimp-gallery/js/blueimp-gallery-youtube.js"></script>
-<script src="components/blueimp-gallery/js/jquery.blueimp-gallery.js"></script>
+<script src="components/blueimp-gallery/js/jquery.blueimp-gallery.min.js"></script>
 <script src="components/angular-ui-sortable/sortable.min.js"></script>
 <script src="components/footable/dist/footable.all.min.js"></script>
 <script src="components/angular-footable/dist/angular-footable.min.js"></script>
@@ -148,14 +136,13 @@
 <script src="components/angular-ladda/dist/angular-ladda.min.js"></script>
 <!-- endbuild -->
 
-
 <!--
  You need to include this script on any page that has a Google Map.
  When using Google Maps on your own site you MUST signup for your own API key at:
  https://developers.google.com/maps/documentation/javascript/tutorial#api_key
  After your sign up replace the key in the URL below..
 -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQTpXj82d8UpCi97wzo_nKXL7nYrd4G70"></script>
+<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQTpXj82d8UpCi97wzo_nKXL7nYrd4G70"></script> -->
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/homer.js"></script>
@@ -186,19 +173,20 @@
 <script src="scripts/controllers/chartist.js"></script>
 <script src="scripts/controllers/codeEditor.js"></script>
 <script src="scripts/controllers/loading.js"></script>
-<script src="scripts/controllers/ng-blueimp-gallery.js"></script>
 <script src="scripts/directives/touchSpin.js"></script>
 <!-- endbuild -->
 
 <!-- startCode -->
-<script
-  src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"
-  integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
-  crossorigin="anonymous"
-></script> 
-<script src="scripts/eduarena/cmsCtrl.js"></script>
+<script src="scripts/eduarena/loginCtrl.js"></script>
 <script src="scripts/eduarena/loginCtrl.js"></script>
 <script src="scripts/eduarena/loginService.js"></script>
+<script src="scripts/eduarena/dashboardCtrl.js"></script>
+<script src="scripts/eduarena/cmsCtrl.js"></script>
+<script src="scripts/eduarena/subjectCtrl.js"></script>
+<script src="scripts/eduarena/campusCtrl.js"></script>
+<script src="scripts/eduarena/homeCtrl.js"></script>
+<script src="scripts/eduarena/subscriptionCtrl.js"></script>
 <!-- endCode -->
 
+</body>
 </html>

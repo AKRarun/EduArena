@@ -1,5 +1,5 @@
 /**
- * HOMER - Responsive Admin Theme
+ * EduArena - Responsive Theme
  * Copyright 2015 Webapplayers.com
  *
  */
@@ -16,6 +16,8 @@ angular
     .directive('smallHeader', smallHeader)
     .directive('animatePanel', animatePanel)
     .directive('landingScrollspy', landingScrollspy)
+    .directive('clockPicker', clockPicker)
+    .directive('dateTimePicker', dateTimePicker)
 
 /**
  * pageTitle - Directive for set Page title - mata title
@@ -25,7 +27,7 @@ function pageTitle($rootScope, $timeout) {
         link: function(scope, element) {
             var listener = function(event, toState, toParams, fromState, fromParams) {
                 // Default title
-                var title = 'EduArena | Special platform for Online Education';
+                var title = 'EduArena | Dashboard';
                 // Create your own title pattern
                 if (toState.data && toState.data.pageTitle) title = 'EduArena | ' + toState.data.pageTitle;
                 $timeout(function() {
@@ -36,7 +38,6 @@ function pageTitle($rootScope, $timeout) {
         }
     }
 };
-
 
 /**
  * sideNavigation - Directive for run metsiMenu on sidebar navigation

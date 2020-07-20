@@ -8,11 +8,24 @@ angular
     .module('eduarena')
     .controller('loginCtrl', loginCtrl)  
 
-function loginCtrl($rootScope, $scope, $http, $state, $stateParams, sweetAlert, notify, loginService, $cookieStore) {
+function loginCtrl($rootScope, $scope, $http, $state, $stateParams, sweetAlert, notify, loginService, $cookieStore, $cookies) {
 
 	try{
+		
 		$rootScope.userRole = $cookieStore.get('userRole');
-	}catch(e){console.log("Get UserRole Exception::"+e);}
+		$rootScope.nickName = $cookieStore.get('nickName');
+		$rootScope.vaildUser = $cookieStore.get('vaildUser');
+		$rootScope.userPackage = $cookieStore.get('userPackage');
+		$rootScope.userSchoolId = $cookieStore.get('userSchoolId');
+		$rootScope.userDepartment = $cookieStore.get('userDepartment');
+		
+		if(!$rootScope.vaildUser){
+			$state.transitionTo('home');
+		}
+	
+	}catch(e){
+		console.log("Get UserRole Exception::"+e);
+	}
 
     $scope.validateMe = function(loginForm) {
 
@@ -20,18 +33,17 @@ function loginCtrl($rootScope, $scope, $http, $state, $stateParams, sweetAlert, 
 
     	loginService.login($scope, $http).then(
 			function success(response){
-				console.log("Response:"+response.data.access);
-  	    		if(response.data.access == "valid"){
-  	    			$rootScope.userRole = response.data.type;
-  	    			$cookieStore.put('user',$scope.username);
+				if(response.data.access == "valid"){
+  	    			$rootScope.userRole = response.data.role;
+  	    			
+  	    			$cookieStore.put('nickName',response.data.shortname);
   	    			$cookieStore.put('userRole',$rootScope.userRole);
-//  	    			$cookieStore.put('authenticated',true);
-//  	    			$http.defaults.headers.common['X-Auth-Token'] = $scope.username.token;
-//  	    			$state.transitionTo('dashboard');
-  	    			
-  	    			console.log("Response success - redirect me");
-  	    			
-	    			$state.go('dashboard');
+  	    			$cookieStore.put('vaildUser',true);
+  	    			$cookieStore.put('userPackage',response.data.packageid);
+  	    			$cookieStore.put('userSchoolId',response.data.schoolid);
+  	    			$cookieStore.put('userDepartment',response.data.department);
+
+  	    			$state.go('dashboard');
 	    		}else{
 	    			$scope.error = "Incorrect username/password !";
 				}
@@ -51,12 +63,14 @@ function loginCtrl($rootScope, $scope, $http, $state, $stateParams, sweetAlert, 
     }
     
     $scope.logMeOut = function() {
-//    	delete $rootScope.userRole;
-//        delete $http.defaults.headers.common['X-Auth-Token'];
-//        $cookieStore.remove('authenticated');
-        $cookieStore.remove('user');
-        $cookieStore.remove('userRole');
-    	$state.transitionTo('home');
+    	$cookieStore.remove('nickName');
+    	$cookieStore.remove('userRole');
+    	$cookieStore.remove('vaildUser');
+    	$cookieStore.remove('userPackage');
+    	$cookieStore.remove('userSchoolId');
+    	$cookieStore.remove('userDepartment');
+
+        $state.transitionTo('home');
     }
     	
 };

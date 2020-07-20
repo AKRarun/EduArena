@@ -32,7 +32,11 @@ public class AuthController {
 		userStatus.put("access", userAccess);
 		userStatus.put("msg", userMsg);
 		userStatus.put("type", userType);
-
+		userStatus.put("shortName", username);
+		userStatus.put("schoolid", "1");
+		userStatus.put("packageid", "1");
+		userStatus.put("department", "1");
+		
 		String userData = userGson.toJson(userStatus);
 		System.out.println(userData);
 
@@ -41,12 +45,13 @@ public class AuthController {
 
 	private boolean checkAccess(String username, String password) {
 		return ((username.equals("edu") && password.equals("edu"))
-				|| (username.equals("student") && password.equals("student"))
-				|| (username.equals("staff") && password.equals("staff")));
+				|| (username.equals("student") && password.equals("edu"))
+				|| (username.equals("staff") && password.equals("edu"))
+				|| (username.equals("guest") && password.equals("edu")));
 	}
 
 	private String getUserRole(String username) {
-		return ((username.equals("edu") ? "Admin"
-				: (username.equals("staff") ? "Teacher" : (username.equals("student") ? "Student" : "Guest"))));
+		return ((username.equals("edu") ? "SuperAdmin"
+				: (username.equals("staff") ? "Teacher" : (username.equals("student") ? "Student" : "Public"))));
 	}
 }

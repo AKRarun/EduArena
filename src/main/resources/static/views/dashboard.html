@@ -6,199 +6,227 @@
 
 <!-- Main Wrapper -->
 <div id="wrapper">
-
-	
-
-  <div class="content" animate-panel effect="zoomIn">
-	<div class="row">
-	    <div class="hpanel">
-	        <div class="panel-body">
-			    <div class="col-lg-12 text-center m-t-md">
-			        <h2>
-			            Welcome to EduArena
-			        </h2>
-			
-			        <p>
-			           Special platform for Online <strong>Education</strong>
-			        </p>
-			    </div>
-			</div>
-		</div> 
-      </div>
+<div class="content" animate-panel effect="zoomIn">
+<div class="row">
+  <div class="hpanel">
+   <div class="panel-body">
+    <div class="col-lg-12 text-center m-t-md">
+         <h2>
+            Welcome to EduArena
+        </h2>
+        <p>
+           Special platform for Online <strong>Education</strong>
+        </p>
+    </div>
    </div>
-
-    <div class="content animate-panel">
-
-        <div class="row">
-
-            <div class="col-md-8">
-
-                <div class="hpanel">
-                    <div class="panel-body">
-
-                        <h2 class="m-t-none">Today's Quotes</h2>
-	                        <br/>
-                        <blockquote>
-                        <p>
-							The mediocre teacher tells. The good teacher explains. The superior teacher demonstrates. The great teacher inspires.
-	                    </p>
-						</blockquote>
-                        <div class="small m-t-xs pull-right">
-                            <strong>William Arthur Ward</strong>
-                        </div>
-
-
-                        <div class="m-t-md">
-                            <canvas id="lineOptions" height="60"></canvas>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="hpanel">
-
-                    <div class="panel-body">
-
-                        <p>
-                           <strong>Schedule's for Today</strong>
-                        </p>
-
-
-                    <div class="panel-body list">
-                        <div class="table-responsive project-list">
-                            <table class="table table-striped">
-                                <thead>
-                                <tr>
-
-                                    <th>Subject</th>
-                                    <th>Class</th>
-                                    <th>Period</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>MATHS
-                                        <br/>
-                                        <small><i class="fa fa-book"></i>  Multiplication : Properties Of Multiplication</small>
-                                    </td>
-                                    <td>
-                                        <span class="pie">III</span>
-                                    </td>
-                                    <td><strong>5th</strong></td>
-                                </tr>
-                                <tr>
-                                    <td>MATHS
-                                        <br/>
-                                        <small><i class="fa fa-book"></i>  Fractions : Multiplying A Fractional Number By A Whole Number</small>
-                                    </td>
-                                    <td>
-                                        <span class="pie">V</span>
-                                    </td>
-                                    <td><strong>8th</strong></td>
-                                </tr>
-                           	  </tbody>
-                            </table>
-                        </div>
-                    </div>
-                        
-
-
-
-                    </div>
-
+  </div>
+</div>
+  
+<div class="row">
+      <div class="col-md-8">
+  		<div class="hpanel hgreen" ng-controller="dashboardCtrl" ng-init="randomQuote()">
+            <div class="panel-heading hbuilt">
+                <h5><strong>Today's Quotes</strong></h5>
+            </div>
+            <div class="panel-body">
+                <p>
+                    {{content}}
+                </p>
+                <div class="small m-t-xs pull-right">
+                     <strong>{{author}}</strong>
                 </div>
             </div>
-            <div class="col-md-4">
-
-                <div class="font-bold m-b-sm">
-                    Apps
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6">
-
-                        <div class="hpanel">
-                            <div class="panel-body text-center">
-<!--                                 <img alt="logo" class="img-circle img-small" src="images/a1.jpg"> -->
-                                <div class="m-t-sm">
-                                    <strong>Attendance</strong>
-<!--                                     <p class="small">for my class</p> -->
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="hpanel">
-                            <div class="panel-body text-center">
-<!--                                 <img alt="logo" class="img-circle img-small" src="images/a1.jpg"> -->
-                                <div class="m-t-sm">
-                                    <strong>Syllabus</strong>
-<!--                                     <p class="small">for my class</p> -->
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="hpanel">
-                            <div class="panel-body text-center">
-<!--                                 <img alt="logo" class="img-circle img-small" src="images/a1.jpg"> -->
-                                <div class="m-t-sm">
-                                    <strong>Exam</strong>
-<!--                                     <p class="small">for my class</p> -->
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <div class="col-md-6">
-
-                        <div class="hpanel">
-                            <div class="panel-body text-center">
-<!--                                 <img alt="logo" class="img-circle img-small" src="images/a4.jpg"> -->
-                                <div class="m-t-sm">
-                                    <strong>Time Table</strong>
-<!--                                     <p class="small">UX Designer</p> -->
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="hpanel">
-                            <div class="panel-body text-center">
-<!--                                 <img alt="logo" class="img-circle img-small" src="images/a4.jpg"> -->
-                                <div class="m-t-sm">
-                                    <strong>Calendar</strong>
-<!--                                     <p class="small">UX Designer</p> -->
-                                </div>
-                            </div>
-                        </div>
-                        
-                        
-                        <div class="hpanel">
-                            <div class="panel-body text-center">
-<!--                                 <img alt="logo" class="img-circle img-small" src="images/a4.jpg"> -->
-                                <div class="m-t-sm">
-                                    <strong>Virtual Classroom</strong>
-<!--                                     <p class="small">UX Designer</p> -->
-                                </div>
-                            </div>
-                        </div>
-                        
-                        
-
-                    </div>
-                </div>
-
-
-
-            </div>
-
-
         </div>
+        
+          <div class="hpanel" ng-if="(userRole == 'Teacher' || userRole == 'Admin' || userRole == 'SuperAdmin')">
+              <div class="panel-body">
+                  <p class="alert alert-success">
+                     <strong>Schedule's for Today</strong>
+                  </p>
+              <div class="panel-body list">
+                  <div class="table-responsive project-list">
+                      <table class="table table-striped">
+                          <thead>
+                          <tr>
+                              <th>Subject</th>
+                              <th>Class</th>
+                              <th>Period</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                              <td>MATHS
+                                  <br/>
+                                  <small><i class="fa fa-book"></i>  Multiplication : Properties Of Multiplication</small>
+                              </td>
+                              <td>
+                                  <span class="pie">III</span>
+                              </td>
+                              <td><strong>5th</strong></td>
+                          </tr>
+                          <tr>
+                              <td>MATHS
+                                  <br/>
+                                  <small><i class="fa fa-book"></i>  Fractions : Multiplying A Fractional Number By A Whole Number</small>
+                              </td>
+                              <td>
+                                  <span class="pie">V</span>
+                              </td>
+                              <td><strong>8th</strong></td>
+                          </tr>
+                     	  </tbody>
+                      </table>
+                  </div>
+              </div>
+
+             </div>
+          </div>
+      </div>
+      <div class="col-md-4">
+
+          <div class="hpanel" ng-controller='clockCtrl'>
+          	<div class="panel-body font-bold m-b-sm text-center">
+            	   <h5><span class="text-success">{{ clock | date:'EEEE, MMMM d, y'}} {{ clock  | date:'h:mm:ss'}} {{ clock  | date:'a'}} </span></h5>
+            </div>
+          </div>
+
+          <div class="hpanel hyellow">
+          	<div class="panel-body font-bold m-b-sm text-center">
+            	  Apps
+            </div>
+          </div>
+
+          <div class="row">
+              <div class="col-md-6">
+
+                  <div class="hpanel" ng-if="(userRole == 'Student' || userRole == 'Teacher' || userRole == 'Admin' || userRole == 'SuperAdmin')">
+                      <div class="panel-body text-center">
+<!--                                 <img alt="logo" class="img-circle img-small" src="images/a1.jpg"> -->
+                       <div class="m-t-sm">
+                           <strong>Attendance</strong>
+<!--                                     <p class="small">for my class</p> -->
+                       </div>
+                   </div>
+               </div>
+
+               <div class="hpanel" ng-if="(userRole == 'Student' || userRole == 'Teacher' || userRole == 'Admin' || userRole == 'SuperAdmin')">
+                   <div class="panel-body text-center">
+<!--                                 <img alt="logo" class="img-circle img-small" src="images/a1.jpg"> -->
+                       <div class="m-t-sm">
+                           <strong>Syllabus</strong>
+<!--                                     <p class="small">for my class</p> -->
+                       </div>
+                   </div>
+               </div>
+
+               <div class="hpanel" ng-if="(userRole == 'Student' || userRole == 'Teacher' || userRole == 'Admin' || userRole == 'SuperAdmin')">
+                   <div class="panel-body text-center">
+<!--                                 <img alt="logo" class="img-circle img-small" src="images/a1.jpg"> -->
+                       <div class="m-t-sm">
+                           <strong>Exam</strong>
+<!--                                     <p class="small">for my class</p> -->
+                       </div>
+                   </div>
+               </div>
+
+
+           </div>
+           <div class="col-md-6">
+
+               <div class="hpanel" ng-if="(userRole == 'Student' || userRole == 'Teacher' || userRole == 'Admin' || userRole == 'SuperAdmin')">
+                   <div class="panel-body text-center">
+<!--                                 <img alt="logo" class="img-circle img-small" src="images/a4.jpg"> -->
+                       <div class="m-t-sm">
+                           <strong>Time Table</strong>
+<!--                                     <p class="small">UX Designer</p> -->
+                       </div>
+                   </div>
+               </div>
+               
+               <div class="hpanel" ng-if="(userRole == 'Student' || userRole == 'Teacher' || userRole == 'Admin' || userRole == 'SuperAdmin')">
+                   <div class="panel-body text-center">
+<!--                                 <img alt="logo" class="img-circle img-small" src="images/a4.jpg"> -->
+                       <div class="m-t-sm">
+                           <strong>Calendar</strong>
+<!--                                     <p class="small">UX Designer</p> -->
+                       </div>
+                   </div>
+               </div>
+               
+               
+               <div class="hpanel">
+                   <div class="panel-body text-center">
+<!--                                 <img alt="logo" class="img-circle img-small" src="images/a4.jpg"> -->
+                       <div class="m-t-sm">
+                           <strong>Virtual Classroom</strong>
+<!--                                     <p class="small">UX Designer</p> -->
+                        </div>
+                    </div>
+                </div>
+                
+                
+
+            </div>
+        </div>
+
+
 
     </div>
 
 
-    
- <!-- Footer -->
- <footer class="footer" ng-include="'views/common/footer.html'"></footer>
+</div>
 
+<div class="row">
+    <div class="col-md-12">
+  		<div class="hpanel">
+  			&nbsp;&nbsp;	
+  		</div>
+	</div>
+</div>  
+
+
+<div class="row">
+    <div class="col-md-12">
+  		<div class="hpanel">
+  			&nbsp;&nbsp;	
+  		</div>
+	</div>
+</div>  
+
+
+<div class="row">
+    <div class="col-md-12">
+  		<div class="hpanel">
+  			&nbsp;&nbsp;	
+  		</div>
+	</div>
+</div>  
+
+
+<div class="row">
+    <div class="col-md-12">
+  		<div class="hpanel">
+  			&nbsp;&nbsp;	
+  		</div>
+	</div>
+</div>  
+
+
+<div class="row">
+    <div class="col-md-12">
+  		<div class="hpanel">
+  			&nbsp;&nbsp;	
+  		</div>
+	</div>
+</div>  
+
+
+
+
+
+</div>
+
+ 
+    <!-- Footer -->
+    <footer class="footer" ng-include="'views/common/footer.html'"></footer>
 </div>

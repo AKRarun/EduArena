@@ -1,5 +1,5 @@
 /**
- * HOMER - Responsive Admin Theme
+ * EduArena - Responsive Theme
  * Copyright 2015 Webapplayers.com
  *
  * Sweet Alert Directive

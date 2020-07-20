@@ -1,7 +1,10 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div id="navbar" class="navbar-collapse collapse">
-            
+             <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a class="page-scroll" href="#page-top">Home</a></li>
+                <li><a class="page-scroll" page-scroll href="#register">Register</a></li>
+            </ul>
         </div>
     </div>
 </nav>
@@ -51,20 +54,103 @@
 <section>
 <div class="container">
 <div class="row">
-    <div class="col-md-4">
-        <h4>Teacher Module</h4>
-        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
-    </div>
-    <div class="col-md-4">
-        <h4>Student Module</h4>
-        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of.</p>
-    </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
         <h4>Unique Dashboard</h4>
-        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+        <p>All our resources are fully supported by EduArena Educators, and our free teacher community. Our content is mapped to all curriculums and aligned to academic standards. EduArena is easy to use, with no downloading, installation, or special hardware required.</p>
+    </div>
+    <div class="col-md-4">
+        <h4>Student</h4>
+        <p>"One size does not fit all," is the fundamental premise of EduArena. We believe every student is unique in their learning styles and learning skills. Nurturing these skills will help each student achieve more and succeed in school. Therefore, EduArena portal leverages technology to identify and understand each student's strength and weakness and provide a time bound personalized learning plan with customized learning content that complements their classroom and course work.</p>
+    </div>
+    <div class="col-md-5">
+        <h4>Educators</h4>
+        <p>Today, in crowded classrooms teachers are asked to achieve significant academic growth for all students at the same time that they instruct students with ever-more diverse needs. Teaching has never been more difficult, it has never been more important, and the desperate need for more student success has never been so urgent. In traditional, blended, and "flipped" learning settings, EduArena supports individual, team, and whole-class learning. At school and in informal learning environments, our portal helps introduce new topics and illustrate complex concepts and lets users tailor their assessments to meet all students' needs.</p>
     </div>
 </div>
 </div>
+</section>
+ 
+<section id="register" class="bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center text-success">
+                <h2><strong>Register Now</strong></h2>
+            </div>
+        </div>
+
+        <div class="row text-center m-t-lg">
+            <div class="col-md-6 col-md-offset-3">
+
+               <form role="form" name="registerForm" novalidate ng-submit="signupForm()">
+                    <div class="row">
+	                    <div class="form-group col-lg-12">
+	                        <input type="email" ng-model="signuseremail" name="signuseremail" class="form-control" required placeholder="Email Address">
+	                         <div class="m-t-xs" ng-show="registerForm.signuseremail.$invalid && registerForm.submitted">
+                             	<span class="text-danger" ng-show="registerForm.signuseremail.$error"><i class="fa fa-exclamation-triangle"></i> Please input a valid email address</span>
+                        	</div>
+	                    </div>
+	                    <div class="form-group col-lg-6">
+	                        <input type="text" name="signusername" ng-model="signusername" class="form-control" required placeholder="Your full name">
+	                         <div class="m-t-xs" ng-show="registerForm.signusername.$invalid && registerForm.submitted">
+                             	<span class="text-danger" ng-show="registerForm.signusername.$error"><i class="fa fa-exclamation-triangle"></i> Please provide username</span>
+                        	</div>
+	                    </div>
+	                    <div class="form-group col-lg-6">
+	                        <input type="text" name="signusermobile" ng-model="signusermobile" class="form-control" required placeholder="Mobile Number"  ng-pattern="/^-?[0-9][^\.]*$/">
+	                         <div class="m-t-xs" ng-show="registerForm.signusermobile.$invalid && registerForm.submitted">
+                             	<span class="text-danger" ng-show="registerForm.signusermobile.$error"><i class="fa fa-exclamation-triangle"></i> Please provide Mobile Number</span>
+                        	</div>
+	                    </div>
+	                    <div class="form-group col-lg-6">
+	                        <input type="password" name="signuserpassword" ng-model="signuserpassword" class="form-control" required placeholder="Password">
+	                         <div class="m-t-xs" ng-show="registerForm.signuserpassword.$invalid && registerForm.submitted">
+                             	<span class="text-danger" ng-show="registerForm.signuserpassword.$error"><i class="fa fa-exclamation-triangle"></i> Please provide password</span>
+                        	</div>
+	                    </div>
+	                    <div class="form-group col-lg-6">
+	                        <input type="password" name="signuserrepeatpassword" ng-model="signuserrepeatpassword" class="form-control" required placeholder="Repeat Password">
+	                         <div class="m-t-xs" ng-show="(registerForm.signuserrepeatpassword.$valid && signuserpassword != signuserrepeatpassword) || registerForm.signuserrepeatpassword.$invalid && registerForm.submitted">
+                             	<span class="text-danger" ng-show="registerForm.signuserrepeatpassword.$error"><i class="fa fa-exclamation-triangle"></i>Passwords does not match</span>
+                        	</div>
+	                    </div>
+	                    <div class="form-group col-lg-6">
+				            <ui-select ng-model="school.selected" name="school" theme="bootstrap" ng-disabled="disabled" ng-change="getSchool()" required>
+				               <ui-select-match placeholder="Select a school">{{$select.selected.name}}</ui-select-match>
+				               <ui-select-choices repeat="school in schoolList | propsFilter: {name: $select.search, id: $select.search}">
+				                   <div ng-bind-html="school.name | highlight: $select.search"></div>
+				               </ui-select-choices>
+				             </ui-select>
+	                         <div class="m-t-xs" ng-show="registerForm.school.$invalid && registerForm.submitted">
+                             	<span class="text-danger" ng-show="registerForm.school.$error"><i class="fa fa-exclamation-triangle"></i>Please select the School</span>
+                        	</div>
+	                    </div>
+	                    <div class="form-group col-lg-6">
+				            <ui-select ng-model="classes.selected" name="class" theme="bootstrap" ng-disabled="disabled" ng-change="getclasses()" required>
+				               <ui-select-match placeholder="Select a class">{{$select.selected.name}}</ui-select-match>
+				               <ui-select-choices repeat="classes in classesList | propsFilter: {name: $select.search, id: $select.search}">
+				                   <div ng-bind-html="classes.name | highlight: $select.search"></div>
+				               </ui-select-choices>
+				             </ui-select>
+				             <div class="m-t-xs" ng-show="registerForm.class.$invalid && registerForm.submitted">
+                             	<span class="text-danger" ng-show="registerForm.class.$error"><i class="fa fa-exclamation-triangle"></i>Please select the Class</span>
+                        	</div>
+	                    </div>
+					</div>
+                    <div class="checkbox col-lg-12">
+                         <input icheck type="checkbox" ng-model="signuserapprove">
+                         	&nbsp;&nbsp;I Accept to join EduArena
+                     </div>
+                    
+                    <div class="text-center">
+                        <button class="btn btn-success" ng-disabled="!signuserapprove" type="submit">Register</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+
+    </div>
 </section>
  
 <!-- Local script for menu handle -->

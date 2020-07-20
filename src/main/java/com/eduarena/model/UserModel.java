@@ -18,6 +18,33 @@ public class UserModel {
 	private String dob;
 	private String status;
 	private String password;
+	private int schoolid;
+	private String access;
+	private String packageid;
+
+	public String getPackageid() {
+		return packageid;
+	}
+
+	public void setPackageid(String packageid) {
+		this.packageid = packageid;
+	}
+
+	public String getAccess() {
+		return access;
+	}
+
+	public void setAccess(String access) {
+		this.access = access;
+	}
+
+	public int getSchoolid() {
+		return schoolid;
+	}
+
+	public void setSchoolid(int schoolid) {
+		this.schoolid = schoolid;
+	}
 
 	public String getAppno() {
 		return appno;

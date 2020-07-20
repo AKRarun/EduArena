@@ -1,68 +1,51 @@
-<div id="navigation" ng-controller="loginCtrl">
+<div id="navigation">
     <div class="profile-picture">
-	    <a href="#">
-	    	<img src="images/male-profile-sm.png" class="img-circle m-b" alt="logo">
+        <a href="#">
+            <img src="images/male-profile-sm.png" class="img-circle m-b" alt="logo">
         </a>
-    	<div class="stats-label text-color">
-            	<span class="font-extra-bold font-uppercase">Nandess</span>
+
+        <div class="stats-label text-color">
+            <span class="font-extra-bold font-uppercase">{{nickName}}</span>
+
             <div class="dropdown" uib-dropdown>
-                <a uib-dropdown-toggle href="#">
-<!--                     <small class="text-muted">Teacher</small> -->
+                <a uib-dropdown-toggle href>
                     <small class="text-muted">{{userRole}}</small>
                 </a>
             </div>
         </div>
     </div>
 
-    <ul side-navigation class="nav metismenu" id="side-menu">
-	    <li ui-sref-active="active">
-	    <a ui-sref="dashboard"> <span class="nav-label">Dashboard</span></a>
-	    </li>
+    <ul side-navigation class="nav" id="side-menu">
         <li ui-sref-active="active">
+            <a ui-sref="dashboard"> <span class="nav-label">Dashboard</span></a>
+        </li>
+        <li ui-sref-active="active" ng-if="(userRole == 'Student' || userRole == 'Teacher' || userRole == 'Admin' || userRole == 'SuperAdmin')">
             <a ui-sref="campus"> <span class="nav-label">Campus</span></a>
         </li>
-        <li ui-sref-active="active">
+        <li ui-sref-active="active" ng-if="(userRole == 'Teacher' || userRole == 'Admin' || userRole == 'SuperAdmin')" ng-show="false">
             <a ui-sref="admission"> <span class="nav-label">Admission</span></a>
         </li>
-        <li ui-sref-active="active">
-            <a ui-sref="class"> <span class="nav-label">Class</span></a>
+<!--         <li ng-class="{active: $state.includes('academic')}" ng-if="(userRole == 'Student' || userRole == 'Teacher' || userRole == 'Admin' || userRole == 'SuperAdmin')"> -->
+        <li ng-class="{active: $state.includes('academic')}" >
+            <a href="#"><span class="nav-label">Academic</span><span class="fa arrow"></span> </a>
+            <ul class="nav nav-second-level" ng-class="{in: $state.includes('academic')}">
+                <li ui-sref-active="active"><a ui-sref="academic.class">Class</a></li>
+                <li ui-sref-active="active"><a ui-sref="academic.subject">Subject</a></li>
+                <li ui-sref-active="active"><a ui-sref="academic.grade">Grade</a></li>
+            </ul>
         </li>
-        <li ui-sref-active="active">
-            <a ui-sref="subject"> <span class="nav-label">Subject</span></a>
-        </li>
-        <li ui-sref-active="active">
-            <a ui-sref="grade"> <span class="nav-label">Grade</span></a>
-        </li>
-<!--         <li ng-class="{active: $state.includes('academic')}"> -->
-<!--             <a href="#"><span class="nav-label">Academic</span><span class="fa arrow"></span> </a> -->
-<!--             <ul class="nav nav-second-level" ng-class="{in: $state.includes('academic')}"> -->
-<!--                 <li ui-sref-active="active"><a ui-sref="academic.class">Class</a></li> -->
-<!--                 <li ui-sref-active="active"><a ui-sref="academic.subject">Subject</a></li> -->
-<!--                 <li ui-sref-active="active"><a ui-sref="academic.grade">Grade</a></li> -->
-<!--             </ul> -->
-<!--         </li> -->
-
-
-<!-- 		<li ui-sref-active="active"> -->
-<!-- 				<a ui-sref="#"> <span class="nav-label">Academic</span><span class="fa arrow"></span> </a> -->
-<!--                 <ul side-navigation class="nav nav-second-level"> -->
-<!-- 			        <li ui-sref-active="active"> -->
-<!-- 			            <a ui-sref="class"> <span class="nav-label">Class</span></a> -->
-<!-- 			        </li> -->
-<!-- 			        <li ui-sref-active="active"> -->
-<!-- 			            <a ui-sref="subject"> <span class="nav-label">Subject</span></a> -->
-<!-- 			        </li> -->
-<!--                 </ul> -->
-<!--             </li> -->
-            
-        <li ui-sref-active="active">
+        <li ui-sref-active="active" ng-if="(userRole == 'Teacher' || userRole == 'Admin' || userRole == 'SuperAdmin')" ng-show="false">
             <a ui-sref="staff"> <span class="nav-label">Staff</span></a>
         </li>
-        <li ui-sref-active="active">
+        <li ui-sref-active="active" ng-if="(userRole == 'Student' || userRole == 'Teacher' || userRole == 'Admin' || userRole == 'SuperAdmin')" ng-show="false">
             <a ui-sref="student"> <span class="nav-label">Student</span></a>
         </li>
         <li ui-sref-active="active">
             <a ui-sref="cms"> <span class="nav-label">CMS</span></a>
         </li>
+        <li ui-sref-active="active" ng-if="(userRole == 'Public' || userRole == 'Admin' || userRole == 'SuperAdmin')">
+            <a ui-sref="subscription"> <span class="nav-label">Subscription</span></a>
+        </li>
+
     </ul>
 </div>

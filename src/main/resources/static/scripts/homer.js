@@ -1,5 +1,5 @@
 /**
- * HOMER - Responsive Admin Theme
+ * EduArena - Responsive Theme
  * version 1.8
  *
  */
@@ -7,31 +7,29 @@
 $(document).ready(function () {
 
     // Set minimal height of #wrapper to fit the window
-    setTimeout(function () {
-        fixWrapperHeight();
-    }, 300);
+    fixWrapperHeight();
 
     // Add special class to minimalize page elements when screen is less than 768px
     setBodySmall();
+
 });
 
 $(window).bind("load", function () {
 
     // Remove splash screen after load
-    $('.splash').css('display', 'none');
-
-})
+    $('.splash').css('display', 'none')
+});
 
 $(window).bind("resize click", function () {
 
     // Add special class to minimalize page elements when screen is less than 768px
     setBodySmall();
 
-    // Wait until metsiMenu, collapse and other effect finish and set wrapper height
+    // Waint until metsiMenu, collapse and other effect finish and set wrapper height
     setTimeout(function () {
         fixWrapperHeight();
     }, 300);
-})
+});
 
 function fixWrapperHeight() {
 
@@ -54,8 +52,8 @@ function fixWrapperHeight() {
     if (contentH > navigationH && contentH < $(window).height()) {
         $("#wrapper").css("min-height", $(window).height() - headerH + 'px');
     }
-
 }
+
 
 function setBodySmall() {
     if ($(this).width() < 769) {

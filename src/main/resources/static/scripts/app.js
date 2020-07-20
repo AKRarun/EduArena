@@ -1,5 +1,5 @@
 /**
- * HOMER - Responsive Admin Theme
+ * EduArena - Responsive Theme
  * version 1.8
  *
  */
@@ -30,8 +30,7 @@
         'datatables.buttons',       // Datatables Buttons
         'angular-ladda',            // Ladda - loading buttons
         'ui.codemirror',            // Ui Codemirror
-        'ngCookies',                 // for cookies
-        'ui.blueimp.gallery'         // for blueimp
+        'ngCookies'                 // for cookies
     ])
 })();
 

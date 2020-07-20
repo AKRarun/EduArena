@@ -11,7 +11,8 @@ angular
 function loginService($http) {
 	this.login = function($scope, $http) {
 		//return $http.get("api/logintables.json");
-		return $http.get("/eduArena/check?username=" + $scope.username + "&password=" + $scope.password);
+//		return $http.get("/eduArena/check?username=" + $scope.username + "&password=" + $scope.password);
+		return $http.post("/eduArena/validate",{'userid': $scope.username, 'password': $scope.password});
 	}
 
 }		

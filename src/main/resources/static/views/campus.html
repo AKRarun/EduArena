@@ -24,9 +24,112 @@
 			</div>
 		</div> 
       </div>
+   
+   
+   <div class="row" ng-controller="campusCtrl">
+   		<div class="col-lg-12">
+   	    	<div class="hpanel hblue">
+				<div class="panel-heading hbuilt text-center">
+			       <h4>Campus Profile</h4>
+                </div>
+               	<div class="panel-body">
+		            <ui-select class="col-lg-4" ng-init="school.selected = schoolList[0];getClass()" ng-model="school.selected" theme="bootstrap" ng-disabled="disabled" ng-change="getClass()">
+		               <ui-select-match placeholder="Select a school">{{$select.selected.name}}</ui-select-match>
+		               <ui-select-choices repeat="school in schoolList | propsFilter: {name: $select.search, id: $select.search}">
+		                   <div ng-bind-html="school.name | highlight: $select.search"></div>
+		               </ui-select-choices>
+		             </ui-select>
+        	    </div>
+        	     
+    	    </div>
+	    </div>
+   
+   
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <div class="panel-body">
+
+	                <div class="form-group">
+	                	<label class="col-lg-2 control-label">School Id:</label>
+	                    <span class="col-lg-6">{{school.selected.id}}</span>
+	                </div>
+	                <div class="hr-line-dashed"></div>
+
+	                <div class="form-group">
+	                	<label class="col-lg-2 control-label">School Name:</label>
+	                    <span class="col-lg-6">{{school.selected.name}}</span>
+	                </div>
+	                <div class="hr-line-dashed"></div>
+
+                </div>
+            </div>
+        </div>
+        
+   
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <div class="panel-body">
+
+	                <div class="form-group">
+	                	<label class="col-lg-2 control-label">Chairman Name:</label>
+	                    <span class="col-lg-6">{{school.selected.chairman}}</span>
+	                </div>
+	                <div class="hr-line-dashed"></div>
+
+	                <div class="form-group">
+	                	<label class="col-lg-2 control-label">Principal Name:</label>
+	                    <span class="col-lg-6">{{school.selected.principal}}</span>
+	                </div>
+	                <div class="hr-line-dashed"></div>
+
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <div class="panel-body">
+	                <div class="form-group">
+	                	<label class="col-lg-2 control-label">Goal:</label>
+	                    <span class="col-lg-6">{{school.selected.goal}}</span>
+	                </div>
+	                <div class="hr-line-dashed"></div>
+
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <div class="panel-body">
+	                <div class="form-group">
+	                	<label class="col-lg-2 control-label">Vision:</label>
+	                    <span class="col-lg-6">{{school.selected.vision}}</span>
+	                </div>
+	                <div class="hr-line-dashed"></div>
+
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <div class="panel-body">
+
+	                <div class="form-group">
+	                	<label class="col-lg-2 control-label">Mission:</label>
+	                    <span class="col-lg-6">{{school.selected.mission}}</span>
+	                </div>
+	                <div class="hr-line-dashed"></div>
+
+                </div>
+            </div>
+        </div>
+        
+        
+      </div>
+   
    </div>
-   
-   
 
  <!-- Footer -->
  <footer class="footer" ng-include="'views/common/footer.html'"></footer>

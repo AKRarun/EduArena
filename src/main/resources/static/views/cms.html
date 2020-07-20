@@ -11,9 +11,8 @@
 		<div class="row">
 			<div class="hpanel">
 				<div class="panel-body">
-					<div class="col-lg-12 text-center m-t-md">
+					<div class="text-center m-t-md">
 						<h2>Welcome to EduArena</h2>
-
 						<p>
 							Special platform for Online <strong>Education</strong>
 						</p>
@@ -21,15 +20,13 @@
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<div class="content animate-panel">
-		<div class="row" ng-controller="cmsCtrl">
+		<div class="row" ng-controller="cmsCtrl" ng-init="getCmsList()">
 
 			<uib-tabset> 
-				<uib-tab> 
-					<uib-tab-heading> General </uib-tab-heading>
-					<div class="col-md-4" data-ng-repeat="content in contentsGeneral">
+				<uib-tab ng-repeat="Subject in cmsPackageList" ng-show="toLoad">
+					<uib-tab-heading> {{Subject.name}}</uib-tab-heading>
+					<div class="col-md-4" data-ng-repeat="content in Subject.content">
 						<div class="hpanel">
 							<div class="panel-body">
  								<p ng-if="content.type != 'youtube'"> <video  controls src="{{content.src}}" width="375" ></video> </p>
@@ -42,59 +39,6 @@
 						</div>
 					</div>
 				</uib-tab> 
-				
-				<uib-tab> 
-					<uib-tab-heading> Physics </uib-tab-heading>
-					<div class="col-md-4" data-ng-repeat="content in contentsPhysics">
-						<div class="hpanel">
-							<div class="panel-body">
-								<video controls src="{{content.src}}" width="375">
-								</video>
-							</div>
-							<div class="panel-footer">{{content.title}}</div>
-						</div>
-					</div>
-					</uib-tab> 
-
-				<uib-tab> 
-					<uib-tab-heading> Chemistry </uib-tab-heading>
-					<div class="col-md-4" data-ng-repeat="content in contentsChemistry">
-						<div class="hpanel">
-							<div class="panel-body">
-								<video controls src="{{content.src}}" width="375">
-								</video>
-							</div>
-							<div class="panel-footer">{{content.title}}</div>
-						</div>
-					</div>
-					</uib-tab> 
-
-				<uib-tab> 
-					<uib-tab-heading> English </uib-tab-heading>
-					<div class="col-md-4" data-ng-repeat="content in contentsEnglish">
-						<div class="hpanel">
-							<div class="panel-body">
-								<video controls src="{{content.src}}" width="375">
-								</video>
-							</div>
-							<div class="panel-footer">{{content.title}}</div>
-						</div>
-					</div>
-				</uib-tab>
-				
-				<uib-tab> 
-					<uib-tab-heading> Maths </uib-tab-heading>
-					<div class="col-md-4" data-ng-repeat="content in contentsMaths">
-						<div class="hpanel">
-							<div class="panel-body">
-								<video controls src="{{content.src}}" width="375">
-								</video>
-							</div>
-							<div class="panel-footer">{{content.title}}</div>
-						</div>
-					</div>
-				</uib-tab>
-				
 				 
 			</uib-tabset>
 
