@@ -18,6 +18,8 @@ function loginCtrl($rootScope, $scope, $http, $state, $stateParams, sweetAlert, 
 		$rootScope.userPackage = $cookieStore.get('userPackage');
 		$rootScope.userSchoolId = $cookieStore.get('userSchoolId');
 		$rootScope.userDepartment = $cookieStore.get('userDepartment');
+		$rootScope.userApproved = $cookieStore.get('userApproved');
+		$rootScope.userPublic = $cookieStore.get('userPublic');
 		
 		if(!$rootScope.vaildUser){
 			$state.transitionTo('home');
@@ -42,6 +44,8 @@ function loginCtrl($rootScope, $scope, $http, $state, $stateParams, sweetAlert, 
   	    			$cookieStore.put('userPackage',response.data.packageid);
   	    			$cookieStore.put('userSchoolId',response.data.schoolid);
   	    			$cookieStore.put('userDepartment',response.data.department);
+  	    			$cookieStore.put('userApproved',response.data.isApproved);
+  	    			$cookieStore.put('userPublic',response.data.ispublic);
 
   	    			$state.go('dashboard');
 	    		}else{
@@ -69,6 +73,8 @@ function loginCtrl($rootScope, $scope, $http, $state, $stateParams, sweetAlert, 
     	$cookieStore.remove('userPackage');
     	$cookieStore.remove('userSchoolId');
     	$cookieStore.remove('userDepartment');
+    	$cookieStore.remove('userApproved');
+    	$cookieStore.remove('userPublic');
 
         $state.transitionTo('home');
     }

@@ -103,7 +103,9 @@ public class CloudantController {
 						"dob",
 						"status",
 						"schoolid",
-	              	    "packageid");
+	              	    "packageid",
+						"isApproved",
+	              	    "ispublic");
 		
 		try {
 			userList = db.query(queryBuilder.build(),UserModel.class);

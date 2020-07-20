@@ -113,7 +113,18 @@
                              	<span class="text-danger" ng-show="registerForm.signuserrepeatpassword.$error"><i class="fa fa-exclamation-triangle"></i>Passwords does not match</span>
                         	</div>
 	                    </div>
-	                    <div class="form-group col-lg-6">
+	                    <div class="form-group col-lg-4">
+				            <ui-select ng-model="mode.selected" name="mode" theme="bootstrap" ng-disabled="disabled" ng-change="getMode()" required>
+				               <ui-select-match placeholder="Select a Mode">{{$select.selected.name}}</ui-select-match>
+				               <ui-select-choices repeat="mode in modeList | propsFilter: {name: $select.search, id: $select.search}">
+				                   <div ng-bind-html="mode.name | highlight: $select.search"></div>
+				               </ui-select-choices>
+				             </ui-select>
+				             <div class="m-t-xs" ng-show="registerForm.mode.$invalid && registerForm.submitted">
+                             	<span class="text-danger" ng-show="registerForm.mode.$error"><i class="fa fa-exclamation-triangle"></i>Please select the Mode</span>
+                        	</div>
+	                    </div>
+	                    <div class="form-group col-lg-4">
 				            <ui-select ng-model="school.selected" name="school" theme="bootstrap" ng-disabled="disabled" ng-change="getSchool()" required>
 				               <ui-select-match placeholder="Select a school">{{$select.selected.name}}</ui-select-match>
 				               <ui-select-choices repeat="school in schoolList | propsFilter: {name: $select.search, id: $select.search}">
@@ -124,7 +135,7 @@
                              	<span class="text-danger" ng-show="registerForm.school.$error"><i class="fa fa-exclamation-triangle"></i>Please select the School</span>
                         	</div>
 	                    </div>
-	                    <div class="form-group col-lg-6">
+	                    <div class="form-group col-lg-4">
 				            <ui-select ng-model="classes.selected" name="class" theme="bootstrap" ng-disabled="disabled" ng-change="getclasses()" required>
 				               <ui-select-match placeholder="Select a class">{{$select.selected.name}}</ui-select-match>
 				               <ui-select-choices repeat="classes in classesList | propsFilter: {name: $select.search, id: $select.search}">

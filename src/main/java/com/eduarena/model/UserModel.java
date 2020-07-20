@@ -21,6 +21,24 @@ public class UserModel {
 	private int schoolid;
 	private String access;
 	private String packageid;
+	private int isApproved;
+	private int ispublic;
+	
+	public int getIspublic() {
+		return ispublic;
+	}
+
+	public void setIspublic(int ispublic) {
+		this.ispublic = ispublic;
+	}
+
+	public int getIsApproved() {
+		return isApproved;
+	}
+
+	public void setIsApproved(int isApproved) {
+		this.isApproved = isApproved;
+	}
 
 	public String getPackageid() {
 		return packageid;
