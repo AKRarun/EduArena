@@ -1,17 +1,16 @@
 /**
  *
- * subscriptionCtrl
+ * admissionCtrl
  *
  */
 
 angular
     .module('eduarena')
-    .controller('subscriptionCtrl', subscriptionCtrl)  
+    .controller('admissionCtrl', admissionCtrl)  
 
-function subscriptionCtrl($rootScope, $scope, $http, $state, $stateParams, sweetAlert, notify, $cookieStore, $timeout, subscribeService) {
+function admissionCtrl($rootScope, $scope, $http, $state, $stateParams, sweetAlert, notify, $cookieStore, $timeout, admissionService) {
 	
-	$scope.userRole = $cookieStore.get('userRole');
-	$scope.userApproved = $cookieStore.get('userApproved');
+	$rootScope.userRole = $cookieStore.get('userRole');
 	
 	 $scope.subscribeForm = function(pack) {
 		 $timeout(function () {
@@ -28,14 +27,14 @@ function subscriptionCtrl($rootScope, $scope, $http, $state, $stateParams, sweet
 
 	 }
 	 
-	 $scope.subscribeList = "";
+	 $scope.registeredList = "";
 	 
-	 $scope.subscribeData = function(loginForm) {
+	 $scope.registeredData = function(loginForm) {
 
-		 subscribeService.subscribe($scope, $http).then(
+		 admissionService.registerUser($scope, $http).then(
 				function success(response){
 					console.log(response.data)
- 	  	    			$scope.subscribeList = response.data;
+ 	  	    			$scope.registeredList = response.data;
  		    	},
 		    	function error(response){
 		    		$scope.error = "No Subscriber / Error at server Side!";

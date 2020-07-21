@@ -24,7 +24,7 @@
 		<div class="row" ng-controller="cmsCtrl" ng-init="getCmsList()">
 
 			<uib-tabset> 
-				<uib-tab ng-repeat="Subject in cmsPackageList" ng-show="toLoad">
+				<uib-tab ng-repeat="Subject in cmsPackageList" ng-show="{{Subject.contentFlag}}">
 					<uib-tab-heading> {{Subject.name}}</uib-tab-heading>
 					<div class="col-md-4" data-ng-repeat="content in Subject.content">
 						<div class="hpanel">

@@ -9,6 +9,11 @@
 
             <div class="dropdown" uib-dropdown>
                 <a uib-dropdown-toggle href>
+                    <small class="text-muted">{{userId}}</small>
+                </a>
+			 </div>
+             <div class="dropdown" uib-dropdown>
+                <a uib-dropdown-toggle href>
                     <small class="text-muted">{{userRole}}</small>
                 </a>
             </div>
@@ -22,11 +27,12 @@
         <li ui-sref-active="active" ng-if="(userRole == 'Student' || userRole == 'Teacher' || userRole == 'Admin' || userRole == 'SuperAdmin')">
             <a ui-sref="campus"> <span class="nav-label">Campus</span></a>
         </li>
-        <li ui-sref-active="active" ng-if="(userRole == 'Teacher' || userRole == 'Admin' || userRole == 'SuperAdmin')" ng-show="false">
+        <li ui-sref-active="active" ng-if="(userRole == 'Teacher' || userRole == 'Admin' || userRole == 'SuperAdmin')">
             <a ui-sref="admission"> <span class="nav-label">Admission</span></a>
         </li>
 <!--         <li ng-class="{active: $state.includes('academic')}" ng-if="(userRole == 'Student' || userRole == 'Teacher' || userRole == 'Admin' || userRole == 'SuperAdmin')"> -->
-        <li ng-class="{active: $state.includes('academic')}" >
+<!--         <li ng-if="(userRole == 'Student' || userRole == 'Teacher' || userRole == 'Admin' || userRole == 'SuperAdmin')"> -->
+        <li ng-class="{active: $state.includes('academic')}" ng-show="((userRole == 'Student' || userRole == 'Teacher' || userRole == 'Admin' || userRole == 'SuperAdmin')?true:false)">
             <a href="#"><span class="nav-label">Academic</span><span class="fa arrow"></span> </a>
             <ul class="nav nav-second-level" ng-class="{in: $state.includes('academic')}">
                 <li ui-sref-active="active"><a ui-sref="academic.class">Class</a></li>
@@ -34,6 +40,7 @@
                 <li ui-sref-active="active"><a ui-sref="academic.grade">Grade</a></li>
             </ul>
         </li>
+<!--         </li> -->
         <li ui-sref-active="active" ng-if="(userRole == 'Teacher' || userRole == 'Admin' || userRole == 'SuperAdmin')" ng-show="false">
             <a ui-sref="staff"> <span class="nav-label">Staff</span></a>
         </li>
@@ -43,7 +50,7 @@
         <li ui-sref-active="active">
             <a ui-sref="cms"> <span class="nav-label">CMS</span></a>
         </li>
-        <li ui-sref-active="active" ng-if="(userRole == 'Public' || userRole == 'Admin' || userRole == 'SuperAdmin')">
+        <li ui-sref-active="active" ng-if="(userRole == 'Public' || userRole == 'Teacher'  || userRole == 'Admin' || userRole == 'SuperAdmin')">
             <a ui-sref="subscription"> <span class="nav-label">Subscription</span></a>
         </li>
 

@@ -24,6 +24,63 @@
 			</div>
 		</div> 
       </div>
+      
+      
+      <div class="row" ng-controller="admissionCtrl" ng-if="(userRole == 'Teacher' || userRole == 'SuperAdmin')" ng-init="registeredData()">
+			<div class="hpanel">
+              <div class="panel-body">
+                  <p class="alert alert-success">
+                     <strong>User Registered & Request List</strong>
+                  </p>
+				<div class="panel-body">
+	                <div class="table-responsive">
+		                <table cellpadding="1" cellspacing="1" class="table table-bordered table-striped">
+	        	            <thead>
+		                    <tr>
+		                        <th class="text-center">User ID</th>
+		                        <th class="text-center">Name</th>
+		                        <th class="text-center">Email</th>
+		                        <th class="text-center">Age</th>
+		                        <th class="text-center">School</th>
+		                        <th class="text-center">Class</th>
+		                        <th class="text-center">Subscription</th>
+		                        <th class="text-center" colspan="2">User Request</th>
+		                    </tr>
+	            	        </thead>
+	                	    <tbody>
+		                    <tr ng-repeat="subscriber in registeredList">
+		                        <td>{{subscriber.userid}}</td>
+		                        <td>{{subscriber.firstname}} {{subscriber.lastname}}</td>
+		                        <td>{{subscriber.email}}</td>
+		                        <td>{{subscriber.age}}</td>
+		                        <td>{{subscriber.schoolid}}</td>
+		                        <td>{{subscriber.department}}</td>
+		                        <td>{{subscriber.packageid}}</td>
+		                        <td class="text-center" ng-if="subscriber.isApproved != '1'">
+		                        	<button ladda="approve{{$index}}" ng-click="runApprove($index)" class="ladda-button btn btn-success" data-style="zoom-out" >Approve</button>
+		                        </td>
+		                        <td class="text-center" ng-if="subscriber.isApproved == '1'">
+		                        	<p class="text-info">Approved</p>
+		                        </td>
+		                        <td class="text-center" ng-if="subscriber.isApproved == '1'">
+		                        	<button ladda="revoke{{$index}}" ng-click="runRevoke($index)" class="ladda-button btn btn-danger" data-style="zoom-out" >Revoke</button>
+		                        </td>
+		                        <td class="text-center" ng-if="subscriber.isApproved != '1'">
+		                        	<button ladda="reject{{$index}}" ng-click="runReject($index)" class="ladda-button btn btn-danger" data-style="zoom-out" >Reject</button>
+		                        </td>
+		                    </tr>
+	
+		                    </tbody>
+	        	        </table>
+        	        </div>
+				</div>			
+             	</div>
+			</div>
+		</div>
+      
+      
+      
+      
    </div>
    
    

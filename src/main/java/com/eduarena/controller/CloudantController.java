@@ -18,8 +18,8 @@ import com.cloudant.client.api.query.QueryBuilder;
 import com.cloudant.client.api.query.QueryResult;
 import com.eduarena.model.UserModel;
 
-import static com.cloudant.client.api.query.Expression.eq;
-import static com.cloudant.client.api.query.Operation.and;
+import static com.cloudant.client.api.query.Expression.*;
+import static com.cloudant.client.api.query.Operation.*;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 
@@ -63,7 +63,90 @@ public class CloudantController {
 						"status",
 						"password",
 						"schoolid",
-	              	    "packageid");
+						"packageid");
+		
+		try {
+			userList = db.query(queryBuilder.build(),UserModel.class);
+			userResult = userGson.toJson(userList.getDocs());
+		} catch (Exception e) {
+			System.out.println("dbList Exception:"+e);
+		}
+		return userResult;
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/subscriber", produces = { "application/json" })
+	public String getSubscriberList() {
+		
+		QueryResult<UserModel> userList = null;
+		Gson userGson = new Gson();
+		String userResult = null;
+		
+		// Get a Database instance to interact with, but don't create it if it doesn't already exist
+		Database db = client.database("arena", false);
+		
+		QueryBuilder queryBuilder = new QueryBuilder(and(eq("ispublic", 1),ne("packageid", 0))).
+				fields("appno",
+						"userid",
+						"shortname",
+						"firstname",
+						"lastname",
+						"age",
+						"location",
+						"category",
+						"department",
+						"role",
+						"email",
+						"mobile",
+						"gender",
+						"dob",
+						"status",
+						"schoolid",
+						"packageid",
+						"isApproved",
+						"ispublic",
+						"issubscribed");
+		
+		try {
+			userList = db.query(queryBuilder.build(),UserModel.class);
+			userResult = userGson.toJson(userList.getDocs());
+		} catch (Exception e) {
+			System.out.println("dbList Exception:"+e);
+		}
+		return userResult;
+	}
+	
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/registerUser", produces = { "application/json" })
+	public String getregisterUserList() {
+		
+		QueryResult<UserModel> userList = null;
+		Gson userGson = new Gson();
+		String userResult = null;
+		
+		// Get a Database instance to interact with, but don't create it if it doesn't already exist
+		Database db = client.database("arena", false);
+		
+		QueryBuilder queryBuilder = new QueryBuilder(and(eq("category", "Student"),eq("status", "Active"))).
+				fields("appno",
+						"userid",
+						"shortname",
+						"firstname",
+						"lastname",
+						"age",
+						"location",
+						"category",
+						"department",
+						"role",
+						"email",
+						"mobile",
+						"gender",
+						"dob",
+						"status",
+						"schoolid",
+	              	    "packageid",
+						"isApproved",
+	              	    "ispublic",
+	              	    "issubscribed");
 		
 		try {
 			userList = db.query(queryBuilder.build(),UserModel.class);
@@ -105,7 +188,8 @@ public class CloudantController {
 						"schoolid",
 	              	    "packageid",
 						"isApproved",
-	              	    "ispublic");
+	              	    "ispublic",
+	              	    "issubscribed");
 		
 		try {
 			userList = db.query(queryBuilder.build(),UserModel.class);

@@ -23,7 +23,16 @@ public class UserModel {
 	private String packageid;
 	private int isApproved;
 	private int ispublic;
+	private int issubscribed;
 	
+	public int getIssubscribed() {
+		return issubscribed;
+	}
+
+	public void setIssubscribed(int issubscribed) {
+		this.issubscribed = issubscribed;
+	}
+
 	public int getIspublic() {
 		return ispublic;
 	}

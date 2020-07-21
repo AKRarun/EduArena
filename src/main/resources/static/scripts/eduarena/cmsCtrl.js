@@ -13,9 +13,15 @@ function cmsCtrl($rootScope, $scope, $http, $state, $stateParams, sweetAlert, no
 	$rootScope.userPackage = $cookieStore.get('userPackage');
 	$rootScope.userSchoolId = $cookieStore.get('userSchoolId');
 	$rootScope.userDepartment = $cookieStore.get('userDepartment');
+	$rootScope.userSubscribed = $cookieStore.get('userSubscribed');
 	
-	schoolId = $rootScope.userSchoolId;
+	schoolId =  $rootScope.userSchoolId;
 	PackageId = $rootScope.userPackage;
+	isSubscribed = $rootScope.userSubscribed;
+	
+	sciencePackage = (isSubscribed == '1' ? ((PackageId == '1' || PackageId == '3')? true : false ) : false);
+	mathsPackage = (isSubscribed == '1' ? ((PackageId == '1' || PackageId == '2')? true : false ) : false);
+	englishPackage = (isSubscribed == '1' ? ((PackageId == '1' || PackageId == '2' || PackageId == '3')? true : false ) : false);
 	
 	 $scope.getCmsList = function () {
 			$scope.cmsPackage = [
@@ -29,7 +35,8 @@ function cmsCtrl($rootScope, $scope, $http, $state, $stateParams, sweetAlert, no
 						{src:'https://www.youtube.com/embed/68iBPAI7zMk', title:'Sea of plastic', tag:'General', type:'youtube'},
 						{src:'https://www.youtube.com/embed/6GHTo4YAugo', title:'BioCellection Technology for Recycling Plastic', tag:'General', type:'youtube'},
 						{src:'https://www.youtube.com/embed/uWf-ftw0Bbo', title:'Circular Economy', tag:'General', type:'youtube'}
-						]
+						],
+						contentFlag : true
 				},
 				{ 
 					name: 'Science',
@@ -37,7 +44,8 @@ function cmsCtrl($rootScope, $scope, $http, $state, $stateParams, sweetAlert, no
 						{src:'http://localhost:9000/eduArena/videos/ABC-Song.mp4', title:'ABC-Song', tag:'Pre-School', type:'mp4'},
 						{src:'http://localhost:9000/eduArena/videos/ABC-Song.mp4', title:'ABC-Song', tag:'Pre-School', type:'mp4'},
 						{src:'http://localhost:9000/eduArena/videos/ABC-Song.mp4', title:'ABC-Song', tag:'Pre-School', type:'mp4'}
-						]
+						],
+						contentFlag : sciencePackage
 				},
 				{ 
 					name: 'English',
@@ -46,7 +54,8 @@ function cmsCtrl($rootScope, $scope, $http, $state, $stateParams, sweetAlert, no
 						{src:'http://localhost:9000/eduArena/videos/ABC-Song.mp4', title:'ABC-Song', tag:'Pre-School', type:'mp4'},
 						{src:'http://localhost:9000/eduArena/videos/ABC-Song.mp4', title:'ABC-Song', tag:'Pre-School', type:'mp4'},
 						{src:'http://localhost:9000/eduArena/videos/ABC-Song.mp4', title:'ABC-Song', tag:'Pre-School', type:'mp4'}
-						]
+						],
+						contentFlag : englishPackage
 				},
 				{ 
 				    name: 'Maths',
@@ -58,7 +67,8 @@ function cmsCtrl($rootScope, $scope, $http, $state, $stateParams, sweetAlert, no
 						{src:'http://localhost:9000/eduArena/videos/ABC-Song.mp4', title:'ABC-Song', tag:'Pre-School', type:'mp4'},
 						{src:'http://localhost:9000/eduArena/videos/ABC-Song.mp4', title:'ABC-Song', tag:'Pre-School', type:'mp4'},
 						{src:'http://localhost:9000/eduArena/videos/ABC-Song.mp4', title:'ABC-Song', tag:'Pre-School', type:'mp4'}
-					    ]
+						],
+					contentFlag : mathsPackage
 				}
 			];
 			

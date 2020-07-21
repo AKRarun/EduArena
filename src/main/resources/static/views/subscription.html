@@ -21,7 +21,75 @@
 			</div>
 		</div>
 
-		<div class="row" ng-controller="subscriptionCtrl">
+		<div class="row" ng-controller="subscriptionCtrl" ng-if="(userRole == 'Teacher' || userRole == 'SuperAdmin')" ng-init="subscribeData()">
+			<div class="hpanel">
+              <div class="panel-body">
+                  <p class="alert alert-success">
+                     <strong>Subscription Request List</strong>
+                  </p>
+				<div class="panel-body">
+	                <div class="table-responsive">
+		                <table cellpadding="1" cellspacing="1" class="table table-bordered table-striped">
+	        	            <thead>
+		                    <tr>
+		                        <th class="text-center">User ID</th>
+		                        <th class="text-center">Name</th>
+		                        <th class="text-center">Email</th>
+		                        <th class="text-center">Age</th>
+		                        <th class="text-center">School</th>
+		                        <th class="text-center">Class</th>
+		                        <th class="text-center">Subscription</th>
+		                        <th class="text-center" colspan="2">User Request</th>
+		                    </tr>
+	            	        </thead>
+	                	    <tbody>
+		                    <tr ng-repeat="subscriber in subscribeList">
+		                        <td>{{subscriber.userid}}</td>
+		                        <td>{{subscriber.firstname}} {{subscriber.lastname}}</td>
+		                        <td>{{subscriber.email}}</td>
+		                        <td>{{subscriber.age}}</td>
+		                        <td>{{subscriber.schoolid}}</td>
+		                        <td>{{subscriber.department}}</td>
+		                        <td>{{subscriber.packageid}}</td>
+		                        <td class="text-center" ng-if="subscriber.issubscribed != '1'">
+		                        	<button ladda="approve{{$index}}" ng-click="runApprove($index)" class="ladda-button btn btn-success" data-style="zoom-out" >Approve</button>
+		                        </td>
+		                        <td class="text-center" ng-if="subscriber.issubscribed == '1'">
+		                        	<p class="text-info">Approved</p>
+		                        </td>
+		                        <td class="text-center" ng-if="subscriber.issubscribed == '1'">
+		                        	<button ladda="revoke{{$index}}" ng-click="runRevoke($index)" class="ladda-button btn btn-danger" data-style="zoom-out" >Revoke</button>
+		                        </td>
+		                        <td class="text-center" ng-if="subscriber.issubscribed != '1'">
+		                        	<button ladda="reject{{$index}}" ng-click="runReject($index)" class="ladda-button btn btn-danger" data-style="zoom-out" >Reject</button>
+		                        </td>
+		                    </tr>
+	
+		                    </tbody>
+	        	        </table>
+        	        </div>
+				</div>			
+             	</div>
+			</div>
+		</div>
+
+		<div class="row" ng-controller="subscriptionCtrl" ng-if="((userRole == 'Public' && userApproved == '0') || userRole == 'SuperAdmin')" ng-init="subscribeData()">
+			<div class="hpanel col-sm-6 col-md-offset-3">
+              <div class="panel-heading hbuilt text-center">
+                Subscription Pack
+            </div>
+            <div class="alert alert-info">
+                <i class="fa fa-bolt"></i> Registration Approval is Pending
+            </div>
+            <div class="panel-body">
+                <p>
+                    Once your registration is Approved. We will notify to your registered E-Mail.
+                </p>
+            </div>
+			</div>
+		</div>
+
+		<div class="row" ng-controller="subscriptionCtrl" ng-if="((userRole == 'Public' && userApproved == '1') || userRole == 'SuperAdmin')">
 
             <div class="col-sm-3">
                 <div class="hpanel plan-box hyellow">
@@ -270,6 +338,8 @@
 
 
 		</div>
+		
+		
 	</div>
 
 
