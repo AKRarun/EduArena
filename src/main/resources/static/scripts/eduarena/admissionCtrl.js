@@ -33,7 +33,6 @@ function admissionCtrl($rootScope, $scope, $http, $state, $stateParams, sweetAle
 
 		 admissionService.registerUser($scope, $http).then(
 				function success(response){
-					console.log(response.data)
  	  	    			$scope.registeredList = response.data;
  		    	},
 		    	function error(response){

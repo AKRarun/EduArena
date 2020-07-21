@@ -29,12 +29,12 @@ function homeCtrl($rootScope, $scope, $http, $state, $stateParams, sweetAlert, n
 	}
 	 $scope.school = {};
 	 $scope.schoolList = [
-	        { name: 'Adam  School',      id: 1 },
-	        { name: 'Amalie  School',    id: 2 },
-	        { name: 'Wladimir  School',  id: 3 },
-	        { name: 'Estefania  School', id: 4 },
-	        { name: 'Nicole  School',    id: 5 },
-	        { name: 'Adrian  School',    id: 6 }
+	        { name: 'Adam School',      id: 1 },
+	        { name: 'Amalie School',    id: 2 },
+	        { name: 'Wladimir School',  id: 3 },
+	        { name: 'Estefania School', id: 4 },
+	        { name: 'Nicole School',    id: 5 },
+	        { name: 'Adrian School',    id: 6 }
 	    ];
 	 
 	 $scope.schoolId = 0;

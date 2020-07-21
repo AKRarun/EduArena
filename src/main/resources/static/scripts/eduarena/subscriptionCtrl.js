@@ -12,6 +12,8 @@ function subscriptionCtrl($rootScope, $scope, $http, $state, $stateParams, sweet
 	
 	$scope.userRole = $cookieStore.get('userRole');
 	$scope.userApproved = $cookieStore.get('userApproved');
+	$scope.userPackage = $cookieStore.get('userPackage');
+	$scope.userSubscribed = $cookieStore.get('userSubscribed');
 	
 	 $scope.subscribeForm = function(pack) {
 		 $timeout(function () {
@@ -24,7 +26,7 @@ function subscriptionCtrl($rootScope, $scope, $http, $state, $stateParams, sweet
 		        		text: "We will verify and send you the confirmation mail!",
 		        		type: "success"
 		        	});
-		 }, 800)
+		 }, 500)
 
 	 }
 	 
@@ -40,8 +42,6 @@ function subscriptionCtrl($rootScope, $scope, $http, $state, $stateParams, sweet
 		    	function error(response){
 		    		$scope.error = "No Subscriber / Error at server Side!";
 		    	});
-	    	
-	    	 
 	    	
 	    }
 	

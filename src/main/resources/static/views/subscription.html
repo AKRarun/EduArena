@@ -73,7 +73,7 @@
 			</div>
 		</div>
 
-		<div class="row" ng-controller="subscriptionCtrl" ng-if="((userRole == 'Public' && userApproved == '0') || userRole == 'SuperAdmin')" ng-init="subscribeData()">
+		<div class="row" ng-controller="subscriptionCtrl" ng-if="(userRole == 'Public' && userApproved == '0')" ng-init="subscribeData()">
 			<div class="hpanel col-sm-6 col-md-offset-3">
               <div class="panel-heading hbuilt text-center">
                 Subscription Pack
@@ -89,91 +89,11 @@
 			</div>
 		</div>
 
-		<div class="row" ng-controller="subscriptionCtrl" ng-if="((userRole == 'Public' && userApproved == '1') || userRole == 'SuperAdmin')">
+		<div class="row" ng-controller="subscriptionCtrl" ng-if="((userRole == 'Public' && userApproved == '1') || userRole == 'SuperAdmin' || userRole == 'Teacher')">
+
 
             <div class="col-sm-3">
-                <div class="hpanel plan-box hyellow">
-                    <div class="panel-heading hbuilt text-center">
-                        <h4 class="font-bold">Maths</h4>
-                    </div>
-                    <div class="panel-body">
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <td>
-                                    <strong>Content</strong>
-                                </td>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>
-                                    <i class="fa fa-check-square-o"></i> Maths
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <i class="fa fa-square-o"></i> Science
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <i class="fa fa-check-square-o"></i> English
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <strong>Formative Assessments</strong>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <i class="fa fa-check-square-o"></i> Skills Proficiency Test
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <strong>Summative Assessments</strong>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <i class="fa fa-check-square-o"></i> Topic Test
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <i class="fa fa-check-square-o"></i> Subject Test
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <strong>Other Features</strong>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <i class="fa fa-check-square-o"></i> Ask a Question
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <i class="fa fa-check-square-o"></i> Points to Remember
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-
- 						 <div class="text-center">
-                        	<button class="btn btn-warning" type="submit" ng-click="subscribeForm(2)">Subscribe</button>
-                    	</div>
-<!--                         <a href="#" class="btn btn-info btn-sm m-t-xs">Subscribe</a> -->
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-3">
-                <div class="hpanel plan-box hgreen">
+                <div class="hpanel plan-box hgreen {{(userRole == 'Public' && userApproved == '1' && userPackage==3)?'active':''}}">
                     <div class="panel-heading hbuilt text-center">
                         <h4 class="font-bold">Science</h4>
                     </div>
@@ -245,16 +165,104 @@
                             </tbody>
                         </table>
 
- 						 <div class="text-center">
-                        	<button class="btn btn-success" type="submit" ng-click="subscribeForm(3)">Subscribe</button>
+ 						 <div class="text-center" ng-show="((userRole == 'SuperAdmin' || userRole == 'Teacher')?false:true)">
+                        	<button class="btn btn-success" type="submit" ng-click="userSubscribed!='1'?(userPackage!='3'?subscribeForm(3):false):false">
+								{{userPackage!='0'?(userPackage=='3'?(userSubscribed!='1'?"Approval Pending!":"Already Subscribed!"):"Subscribe"):"Subscribe"}}
+							</button>
                     	</div>
 
 <!--                         <a href="#" class="btn btn-info btn-sm m-t-xs">Subscribe</a> -->
                     </div>
                 </div>
             </div>
+
+
             <div class="col-sm-3">
-                <div class="hpanel plan-box hblue">
+                <div class="hpanel plan-box hyellow {{(userRole == 'Public' && userApproved == '1' && userPackage==2)?'active':''}}">
+                    <div class="panel-heading hbuilt text-center">
+                        <h4 class="font-bold">Maths</h4>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <td>
+                                    <strong>Content</strong>
+                                </td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-check-square-o"></i> Maths
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-square-o"></i> Science
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-check-square-o"></i> English
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Formative Assessments</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-check-square-o"></i> Skills Proficiency Test
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Summative Assessments</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-check-square-o"></i> Topic Test
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-check-square-o"></i> Subject Test
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Other Features</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-check-square-o"></i> Ask a Question
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fa fa-check-square-o"></i> Points to Remember
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+ 						 <div class="text-center" ng-show="((userRole == 'SuperAdmin' || userRole == 'Teacher')?false:true)">
+                        	<button class="btn btn-warning" type="submit" ng-click="userSubscribed!='1'?(userPackage!='2'?subscribeForm(2):fasle):false">
+                        	{{userPackage!='0'?(userPackage=='2'?(userSubscribed!='1'?"Approval Pending!":"Already Subscribed!"):"Subscribe"):"Subscribe"}}
+                        	</button>
+                    	</div>
+<!--                         <a href="#" class="btn btn-info btn-sm m-t-xs">Subscribe</a> -->
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-3">
+                <div class="hpanel plan-box hblue {{(userRole == 'Public' && userApproved == '1' && userPackage==1)?'active':''}}">
                     <div class="panel-heading hbuilt text-center">
                         <h4 class="font-bold">Combo</h4>
                     </div>
@@ -326,8 +334,10 @@
                             </tbody>
                         </table>
 
- 						 <div class="text-center">
-                        	<button class="btn btn-info" type="submit" ng-click="subscribeForm(1)">Subscribe</button>
+ 						 <div class="text-center" ng-show="((userRole == 'SuperAdmin' || userRole == 'Teacher')?false:true)">
+                        	<button class="btn btn-info" type="submit" ng-click="userSubscribed!='1'?(userPackage!='1'?subscribeForm(1):fasle):false">
+								{{userPackage!='0'?(userPackage=='1'?(userSubscribed!='1'?"Approval Pending!":"Already Subscribed!"):"Subscribe"):"Subscribe"}}
+							</button>
                     	</div>
 
 <!--                         <a href="#" class="btn btn-info btn-sm m-t-xs">Subscribe</a> -->

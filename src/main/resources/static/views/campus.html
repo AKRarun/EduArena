@@ -33,12 +33,16 @@
 			       <h4>Campus Profile</h4>
                 </div>
                	<div class="panel-body">
-		            <ui-select class="col-lg-4" ng-init="school.selected = schoolList[0];getClass()" ng-model="school.selected" theme="bootstrap" ng-disabled="disabled" ng-change="getClass()">
+
+		            <ui-select class="col-lg-4" ng-init="school.selected = schoolList[0];getSchoolDetail()" ng-model="school.selected" theme="bootstrap" ng-disabled="disabled" ng-change="getSchoolDetail()"
+		            ng-if="(userRole=='Admin' || userRole=='SuperAdmin')">
 		               <ui-select-match placeholder="Select a school">{{$select.selected.name}}</ui-select-match>
 		               <ui-select-choices repeat="school in schoolList | propsFilter: {name: $select.search, id: $select.search}">
 		                   <div ng-bind-html="school.name | highlight: $select.search"></div>
 		               </ui-select-choices>
 		             </ui-select>
+		              
+<!-- 						<span ng-show="false" ng-if="(userRole!='Admin' || userRole!='SuperAdmin')">{{schoolList[2]}}</span>		              -->
         	    </div>
         	     
     	    </div>
